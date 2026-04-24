@@ -1,0 +1,11 @@
+{
+  "darwinBundleIdentifier": "com.vscodium",
+  "tunnelApplicationConfig": {
+    "enableRemote": false
+  },
+  "memoryLimitMB": 2048,
+  "extensionHostMemoryLimitMB": 256,
+  "searchMemoryLimitMB": 512,
+  "enableGCDebounce": true,
+  "disableHardwareAcceleration": false
+}

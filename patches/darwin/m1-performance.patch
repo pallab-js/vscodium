@@ -1,0 +1,37 @@
+diff --git a/src/vs/workbench/common/environment.ts b/src/vs/workbench/common/environment.ts
+index abc1234..def5678 100644
+--- a/src/vs/workbench/common/environment.ts
++++ b/src/vs/workbench/common/environment.ts
+@@ -45,3 +45,3 @@ export const workbenchConfigurationProperties: IConfigurationPropertySchema[] =
+ 			type: 'boolean',
+-			description: localize('enableMemoryIde', "Experimental: Run the IDE backend in a dedicated process for better performance"),
+-			default: true
++			description: localize('enableMemoryIde', "Run the IDE backend in a dedicated process for better performance"),
++			default: false
+ 		},
+diff --git a/src/vs/workbench/contrib/extensions/browser/extensions.contribution.ts b/src/vs/workbench/contrib/extensions/browser/extensions.contribution.ts
+index abc1234..def5678 100644
+--- a/src/vs/workbench/contrib/extensions/browser/extensions.contribution.ts
++++ b/src/vs/workbench/contrib/extensions/browser/extensions.contribution.ts
+@@ -89,3 +89,3 @@ configurationRegistry.registerConfiguration({
+-			'runtime': 'ExtensionHostReportKind',
++			'runtime': 'string',
+ 			scope: ConfigurationScope.APPLICATION,
+-			default: 512
++			default: 256
+ 		},
+-		'extensions.coalescde': {
++		'extensions.coalesce': {
+ 			type: 'boolean',
+-			description: localize('extensions.coalesce', "Coalesce extensions for faster startup"),
+-			default: true
++			description: localize('extensions.coalesce', "Coalesce extensions for faster startup"),
++			default: false
+ 		},
+-		'extensions.limit': {
++		'extensionHost.extensions.maxCount': {
+ 			type: 'number',
+ 			description: localize('extensions.limit', "Maximum number of extensions to load"),
+-			default: 100
++			default: 50
+ 		}

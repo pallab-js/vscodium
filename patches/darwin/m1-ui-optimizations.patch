@@ -1,0 +1,94 @@
+diff --git a/src/vs/workbench/browser/workbench.contribution.ts b/src/vs/workbench/browser/workbench.contribution.ts
+index d09ab3f..f37edd6 100644
+--- a/src/vs/workbench/browser/workbench.contribution.ts
++++ b/src/vs/workbench/browser/workbench.contribution.ts
+@@ -150,3 +150,3 @@ const registry = Registry.as<IConfigurationRegistry>(ConfigurationExtensions.Con
+ 				'description': localize('smoothScrolling', "Controls whether scrolling of VS Code and embedded editors is smooth animated."),
+-				'default': true,
++				'default': false,
+ 				scope: ConfigurationScope.APPLICATION,
+@@ -200,3 +200,3 @@ const registry = Registry.as<IConfigurationRegistry>(ConfigurationExtensions.Con
+ 				'description': localize('enablePreviewFeatures', "When enabled, shows a preview of VS Code features that may be changed based on feedback."),
+-				'default': true,
++				'default': false,
+ 				scope: ConfigurationScope.APPLICATION,
+@@ -350,3 +350,3 @@ const registry = Registry.as<IConfigurationRegistry>(ConfigurationExtensions.Con
+ 				'description': localize('indentGuides', "Controls whether to render indent guides."),
+-				'default': true,
++				'default': false,
+ 				scope: ConfigurationScope.APPLICATION,
+@@ -400,3 +400,3 @@ const registry = Registry.as<IConfigurationRegistry>(ConfigurationExtensions.Con
+ 				'description': localize('bracketPairColorization', "Controls whether bracket pair colorization is enabled."),
+-				'default': true,
++				'default': false,
+ 				scope: ConfigurationScope.APPLICATION,
+@@ -450,3 +450,3 @@ const registry = Registry.as<IConfigurationRegistry>(ConfigurationExtensions.Con
+ 				'description': localize('inlineSuggest', "Controls whether to show suggestions inline."),
+-				'default': true,
++				'default': false,
+ 				scope: ConfigurationScope.APPLICATION,
+@@ -500,3 +500,3 @@ const registry = Registry.as<IConfigurationRegistry>(ConfigurationExtensions.Con
+ 				'description': localize('cursorBlinking', "Controls the cursor blinking animation."),
+-				'default': 'blink',
++				'default': 'solid',
+ 				scope: ConfigurationScope.APPLICATION,
+@@ -550,3 +550,3 @@ const registry = Registry.as<IConfigurationRegistry>(ConfigurationExtensions.Con
+ 				'description': localize('window.autoDetectColorScheme', "Adjust appearance of VS Code based on OS appearance."),
+-				'default': true,
++				'default': false,
+ 				scope: ConfigurationScope.APPLICATION,
+@@ -600,3 +600,3 @@ const registry = Registry.as<IConfigurationRegistry>(ConfigurationExtensions.Con
+ 				'description': localize('showTabs', "Controls whether tabs are visible."),
+-				'default': true,
++				'default': false,
+ 				scope: ConfigurationScope.APPLICATION,
+@@ -650,3 +650,3 @@ const registry = Registry.as<IConfigurationRegistry>(ConfigurationExtensions.Con
+ 				'description': localize('compactFolders', "Controls whether to use compact folder styling when there are nested folders in the explorer."),
+-				'default': true,
++				'default': false,
+ 				scope: ConfigurationScope.APPLICATION,
+diff --git a/src/vs/workbench/contrib/scm/browser/scm.contribution.ts b/src/vs/workbench/contrib/scm/browser/scm.contribution.ts
+index abc1234..def5678 100644
+--- a/src/vs/workbench/contrib/scm/browser/scm.contribution.ts
++++ b/src/vs/workbench/contrib/scm/browser/scm.contribution.ts
+@@ -45,3 +45,3 @@ configurationRegistry.registerConfiguration({
+ 			'markdownDescription': localize('showActionButton', "Controls whether to show an action button for Git features."),
+-			'default': true,
++			'default': false,
+ 			tags: ['scm'],
+diff --git a/src/vs/workbench/contrib/timeline/browser/timeline.contribution.ts b/src/vs/workbench/contrib/timeline/browser/timeline.contribution.ts
+index abc1234..def5678 100644
+--- a/src/vs/workbench/contrib/timeline/browser/timeline.contribution.ts
++++ b/src/vs/workbench/contrib/timeline/browser/timeline.contribution.ts
+@@ -35,3 +35,3 @@ configurationRegistry.registerConfiguration({
+ 			'markdownDescription': localize('autoRefresh', "Auto refresh Timeline view when the active editor changes."),
+-			'default': true,
++			'default': false,
+ 			scope: ConfigurationScope.WINDOW,
+diff --git a/src/vs/workbench/contrib/testing/browser/testing.contribution.ts b/src/vs/workbench/contrib/testing/browser/testing.contribution.ts
+index abc1234..def5678 100644
+--- a/src/vs/workbench/contrib/testing/browser/testing.contribution.ts
++++ b/src/vs/workbench/contrib/testing/browser/testing.contribution.ts
+@@ -55,3 +55,3 @@ configurationRegistry.registerConfiguration({
+ 			markdownDescription: localize('showTestingStatusBarInTitle', "Show testing status in the title bar"),
+-			default: true,
++			default: false,
+ 			scope: ConfigurationScope.WINDOW,
+diff --git a/src/vs/workbench/contrib/notebook/browser/notebook.contribution.ts b/src/vs/workbench/contrib/notebook/browser/notebook.contribution.ts
+index abc1234..def5678 100644
+--- a/src/vs/workbench/contrib/notebook/browser/notebook.contribution.ts
++++ b/src/vs/workbench/contrib/notebook/browser/notebook.contribution.ts
+@@ -75,3 +75,3 @@ configurationRegistry.registerConfiguration({
+ 			type: 'boolean',
+-			default: true,
++			default: false,
+ 			markdownDescription: localize('notebook.externalRepoStats', "Show external repository stats"),
+diff --git a/src/vs/workbench/contrib/search/browser/search.contribution.ts b/src/vs/workbench/contrib/search/browser/search.contribution.ts
+index abc1234..def5678 100644
+--- a/src/vs/workbench/contrib/search/browser/search.contribution.ts
++++ b/src/vs/workbench/contrib/search/browser/search.contribution.ts
+@@ -85,3 +85,3 @@ configurationRegistry.registerConfiguration({
+ 			type: 'boolean',
+-			default: true,
++			default: false,
+ 			markdownDescription: localize('search.workspaceSymbols', "Search workspace symbols")

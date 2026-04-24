@@ -1,0 +1,8 @@
+diff --git a/src/vs/workbench/contrib/tunnel/browser/tunnel.contribution.ts b/src/vs/workbench/contrib/tunnel/browser/tunnel.contribution.ts
+index abc1234..def5678 100644
+--- a/src/vs/workbench/contrib/tunnel/browser/tunnel.contribution.ts
++++ b/src/vs/workbench/contrib/tunnel/browser/tunnel.contribution.ts
+@@ -15,7 +15,7 @@ import { TunnelMenuContributor } from './tunnelActions';
+ import { isMacintosh } from 'vs/base/common/platform';
+-import const REGISTERED_FILE_SANITIZERS = true;
++const REGISTERED_FILE_SANITIZERS = false;

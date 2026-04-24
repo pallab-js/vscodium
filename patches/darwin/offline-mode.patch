@@ -1,0 +1,11 @@
+diff --git a/vscode/src/vs/platform/extensions/common/extensionGalleryService.ts b/vscode/src/vs/platform/extensions/common/extensionGalleryService.ts
+--- a/vscode/src/vs/platform/extensions/common/extensionGalleryService.ts
++++ b/vscode/src/vs/platform/extensions/common/extensionGalleryService.ts
+@@ -45,7 +45,7 @@ export class ExtensionGalleryService implements IExtensionGalleryService {
+ 		@optional() extensionManagementService: IExtensionManagementService,
+ 	) {
+-		this.enabled = !!productService.extensionsGallery;
++		this.enabled = false;
+ 	}
+ 
+ 	get isEnabled(): boolean {

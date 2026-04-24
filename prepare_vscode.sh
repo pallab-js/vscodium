@@ -50,7 +50,12 @@ setpath "product" "requestFeatureUrl" "https://go.microsoft.com/fwlink/?LinkID=5
 setpath "product" "tipsAndTricksUrl" "https://go.microsoft.com/fwlink/?linkid=852118"
 setpath "product" "twitterUrl" "https://go.microsoft.com/fwlink/?LinkID=533687"
 
-if [[ "${DISABLE_UPDATE}" != "yes" ]]; then
+# Offline mode: disable all network-based features for isolated networks
+if [[ "${DISABLE_UPDATE}" == "yes" ]] || [[ "${OS_NAME}" == "osx" ]]; then
+  setpath "product" "extensionsGallery" 'null'
+  setpath "product" "updateUrl" 'null'
+  setpath "product" "downloadUrl" 'null'
+else
   setpath "product" "updateUrl" "https://raw.githubusercontent.com/VSCodium/versions/refs/heads/master"
 
   if [[ "${VSCODE_QUALITY}" == "insider" ]]; then
@@ -58,10 +63,6 @@ if [[ "${DISABLE_UPDATE}" != "yes" ]]; then
   else
     setpath "product" "downloadUrl" "https://github.com/VSCodium/vscodium/releases"
   fi
-
-  # if [[ "${OS_NAME}" == "windows" ]]; then
-  #   setpath_json "product" "win32VersionedUpdate" "true"
-  # fi
 fi
 
 if [[ "${VSCODE_QUALITY}" == "insider" ]]; then
@@ -123,6 +124,20 @@ fi
 
 setpath_json "product" "tunnelApplicationConfig" '{}'
 
+if [[ "${OS_NAME}" == "osx" ]]; then
+  setpath_json "product" "tunnelApplicationConfig" '{"enableRemote": false}'
+
+  # Offline mode settings
+  setpath "product" "extensionsGallery" 'null'
+  setpath "product" "enableExtensions" "false"
+
+  if [[ "${VSCODE_ARCH}" == "arm64" ]]; then
+    setpath_json "product" "memoryLimitMB" 2048
+    setpath_json "product" "extensionHostMemoryLimitMB" 256
+    setpath_json "product" "searchMemoryLimitMB" 512
+  fi
+fi
+
 jsonTmp=$( jq -s '.[0] * .[1]' product.json ../product.json )
 echo "${jsonTmp}" > product.json && unset jsonTmp
 
@@ -167,6 +182,11 @@ if [[ -d "../patches/${OS_NAME}/" ]]; then
       apply_patch "${file}"
     fi
   done
+fi
+
+if [[ "${OS_NAME}" == "osx" ]]; then
+  mv ../patches/darwin/disable-remote.patch.yet ../patches/darwin/disable-remote.patch 2>/dev/null || true
+  mv ../patches/darwin/offline-mode.patch.yet ../patches/darwin/offline-mode.patch 2>/dev/null || true
 fi
 
 for file in ../patches/user/*.patch; do

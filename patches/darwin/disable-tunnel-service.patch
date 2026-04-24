@@ -1,0 +1,10 @@
+diff --git a/src/vs/platform/tunnel/common/tunnel.ts b/src/vs/platform/tunnel/common/tunnel.ts
+index abc1234..def5678 100644
+--- a/src/vs/platform/tunnel/common/tunnel.ts
++++ b/src/vs/platform/tunnel/common/tunnel.ts
+@@ -20,5 +20,5 @@ export const ITunnelService = refineServiceDecorator('tunnel');
+ export interface TunnelService {
+ 	readonly isBuiltinTunnelProvider: boolean;
+-	forwardPort: (tunnel: TunnelProperties) => Promise<Tunnel | undefined>;
++	forwardPort: (tunnel: TunnelProperties) => Promise<undefined>;
+ }

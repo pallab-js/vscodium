@@ -1,0 +1,9 @@
+diff --git a/src/vs/workbench/contrib/remote/browser/remote.contribution.ts b/src/vs/workbench/contrib/remote/browser/remote.contribution.ts
+index abc1234..def5678 100644
+--- a/src/vs/workbench/contrib/remote/browser/remote.contribution.ts
++++ b/src/vs/workbench/contrib/remote/browser/remote.contribution.ts
+@@ -25,7 +25,7 @@ import { registerSingleton } from 'vs/platform/instantiation/common/extensions'
+ import { RemoteFileSystemProvider } from 'vs/workbench/contrib/remote/common/remoteFileSystemProvider';
+ import { RemoteAgentService } from 'vs/workbench/services/remote/common/remoteAgentService';
+-import workbenchContributions.registerWorkbenchContribution2('RemoteAgentService', RemoteAgentService, LifecyclePhaseEvent.Restored);
++workbenchContributions.registerWorkbenchContribution2('RemoteAgentService', RemoteAgentService, LifecyclePhaseEvent.ShuttingDown);
